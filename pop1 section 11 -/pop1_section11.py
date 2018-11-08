@@ -78,3 +78,40 @@ s = input()
 print(is_paren_balanced(s))
 
 #3. Doubly Linked Lists and Queue
+class Node:
+    def __init__(self, init_data):
+        self.data = init_data
+        self.next = None
+        self.previous = None
+
+
+class Queue:
+    def __init__(self):
+        self.front = None
+        self.back = None
+
+    def enqueue(self, x):
+        newNode = Node(x)
+        newNode.next = None
+        if self.front == None:
+            self.front = newNode
+            self.back = newNode
+        else:
+            self.back.next = newNode
+            newNode.previous = self.back
+            self.back = newNode
+
+    def dequeue(self):
+        item = self.front.data
+        self.front = self.front.next
+        return item
+
+    def is_empty(self):
+        return self.front == None
+
+
+# NO modifications below this line
+import sys
+
+complete_input = sys.stdin.readlines()
+for line in complete_input: exec(line)
