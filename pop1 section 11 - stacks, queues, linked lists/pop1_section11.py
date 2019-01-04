@@ -84,7 +84,6 @@ class Node:
         self.next = None
         self.previous = None
 
-
 class Queue:
     def __init__(self):
         self.front = None
